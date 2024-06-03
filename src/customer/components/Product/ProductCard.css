@@ -1,0 +1,12 @@
+.productCard .textPart {
+    transition: transform .3s ease-out;
+}
+
+.productCard:hover .textPart {
+    transform: translate(-1rem);
+}
+.productCard:hover{
+    -webkit-box-shadow: 12px 7px 20px -5px rgba(148,148,148,1);
+    -moz-box-shadow: 12px 7px 20px -5px rgba(148,148,148,1);
+    box-shadow: 12px 7px 20px -5px rgba(148,148,148,1);
+}
