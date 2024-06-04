@@ -409,7 +409,7 @@ export default function Navigation() {
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                   {true ? (
-                    <div>
+                    <div className="flex items-center">
                       <Avatar
                         className="text-white"
                         // onClick={handleUserClick}
@@ -418,7 +418,7 @@ export default function Navigation() {
                         aria-expanded={open ? "true" : undefined}
                         // onClick={handleUserClick}
                         sx={{
-                          bgcolor: deepPurple[500],
+                          bgcolor:"green",
                           color: "white",
                           cursor: "pointer",
                         }}
