@@ -338,7 +338,7 @@ export default function ProductDetails() {
                                         </Grid>
                                         <Grid item xs={7}>
                                             <LinearProgress sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
-                                                variant="determinate" value={40} color='success' />
+                                                variant="determinate" value={40} color='warning' />
                                         </Grid>
                                     </Grid>
                                     <Grid container alignItems="center" gap={2}>
