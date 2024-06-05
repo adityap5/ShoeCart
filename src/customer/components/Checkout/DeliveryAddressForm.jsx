@@ -21,7 +21,7 @@ function DeliveryAddressForm() {
         <div>
             <Grid container spacing={4}>
                 <Grid xs={12} lg={5} className="border rounded-e-md shadow-md h-[30.5rem] overflow-y-scroll">
-                    <div className="p-5 py-7 border-b cursor-pointer">
+                    <div className="p-5 py-7 border-b cursor-pointer text-start">
                         <AddressCard />
                         <Button sx={{ mt: 2, bgcolor: "RGB(145 90 253" }} size="large" variant="contained">Delivere here</Button>
                     </div>
