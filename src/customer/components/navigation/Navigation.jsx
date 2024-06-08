@@ -11,12 +11,12 @@ import {
 import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 import {navigation}  from "./navigation";
 import { deepPurple } from "@mui/material/colors";
-// import AuthModal from "../Auth/AuthModal";
 // import { useDispatch, useSelector } from "react-redux";
 // import { getUser, logout } from "../../../Redux/Auth/Action";
 // import { getCart } from "../../../Redux/Customers/Cart/Action";
 import TextField from "@mui/material/TextField";
 import { useNavigate } from "react-router-dom";
+import AuthModal from "../../Auth/AuthModal";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -27,7 +27,7 @@ export default function Navigation() {
   const navigate = useNavigate();
   // const dispatch = useDispatch();
   // const { auth, cart } = useSelector((store) => store);
-  // const [openAuthModal, setOpenAuthModal] = useState(false);
+  const [openAuthModal, setOpenAuthModal] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const openUserMenu = Boolean(anchorEl);
   // const jwt = localStorage.getItem("jwt");
@@ -47,12 +47,12 @@ export default function Navigation() {
     setAnchorEl(null);
   };
 
-  // const handleOpen = () => {
-  //   setOpenAuthModal(true);
-  // };
-  // const handleClose = () => {
-  //   setOpenAuthModal(false);
-  // };
+  const handleOpen = () => {
+    setOpenAuthModal(true);
+  };
+  const handleClose = () => {
+    setOpenAuthModal(false);
+  };
 
   const handleCategoryClick = (category, section, item, close) => {
     navigate(`/${category.id}/${section.id}/${item.id}`);
@@ -257,24 +257,22 @@ export default function Navigation() {
               <button
                 type="button"
                 className="rounded-md bg-white p-2 text-gray-400 lg:hidden"
-                // onClick={() => setOpen(true)}
+                onClick={() => setOpen(true)}
               >
                 <span className="sr-only">Open menu</span>
                 <Bars3Icon className="h-6 w-6" aria-hidden="true" />
               </button>
 
               {/* Logo */}
-              <div className="ml-4 flex lg:ml-0">
-              
-                  <span className="sr-only">Your Company</span>
+              <div className="ml-4 flex lg:ml-0 cursor-pointer">
+                  <span className="sr-only ">Your Company</span>
                   <img
-                    src="https://res.cloudinary.com/ddkso1wxi/image/upload/v1675919455/Logo/Copy_of_Zosh_Academy_nblljp.png"
+                  onClick={() => navigate("/")}
+                    src="data:image/jpeg;base64,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"
                     alt=""
                     className="h-8 w-8 mr-2"
                   />
-              
               </div>
-
               {/* Flyout menus */}
                <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch z-10">
                 <div className="flex h-full space-x-8">
@@ -409,7 +407,7 @@ export default function Navigation() {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  {true ? (
+                  {false ? (
                     <div className="flex items-center">
                       <Avatar
                         className="text-white"
@@ -453,7 +451,7 @@ export default function Navigation() {
                     </div>
                   ) : (
                     <Button
-                      // onClick={handleOpen}
+                      onClick={handleOpen}
                       className="text-sm font-medium text-gray-700 hover:text-gray-800"
                     >
                       Signin
@@ -497,7 +495,7 @@ export default function Navigation() {
           </div>
         </nav>
       </header>
-      {/* <AuthModal handleClose={handleClose} open={openAuthModal} /> */}
+      <AuthModal handleClose={handleClose} open={openAuthModal}/>
     </div>
   );
 }
